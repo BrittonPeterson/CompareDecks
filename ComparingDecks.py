@@ -1,6 +1,5 @@
 def create_deck():
 	deck = {}
-	num_of_decks = int(input("Enter the number of decks you would like to compare:"))
 	for i in range(num_of_decks):
 		print(f"Paste the decklist for deck {i+1}, then type done")
 		user_input = []
@@ -19,19 +18,11 @@ def create_deck():
 				deck[card] = 1
 	return deck
 	
+num_of_decks = int(input("Enter the number of decks you would like to compare: "))
 deck_index = create_deck()
 
-print("Cards that appear thrice:")
-for card in deck_index:
-	if deck_index[card] == 3:
-		print(card)
-
-print("\nCards with that appear twice:")
-for card in deck_index:
-	if deck_index[card] == 2:
-		print(card)
-
-print("\nCards with that appear once:")
-for card in deck_index:
-	if deck_index[card] == 1:
-		print(card)
+for d in range(num_of_decks):
+	print(f"\nCards that appear {d+1} times: ")
+	for card in deck_index:
+		if deck_index[card] == (d+1):
+			print(card[2:])
